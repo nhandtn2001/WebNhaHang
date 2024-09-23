@@ -1,0 +1,101 @@
+﻿@model MyClass.Model.DANGKY
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Bạn có muốn xóa chi tiết hóa đơn này?</h3>
+<div>
+    <h4>ĐĂNG KÝ</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDangNhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDangNhap)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MatKhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailDK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailDK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChiDK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiDK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDayDu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDayDu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CauHoiBaoMat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CauHoiBaoMat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinhDK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinhDK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaQuyen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaQuyen)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" sclas="btn btn-sm btn-success" />
+
+        </div>
+
+        <div>
+            <a href="@Url.Action("",("CHITIETHD"))" class="btn btn-sm btn-success">Quay Lại</a>
+        </div>
+    }
+</div>

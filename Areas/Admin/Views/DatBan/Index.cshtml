@@ -1,0 +1,102 @@
+﻿@model PagedList.IPagedList<MyClass.Model.DatBan>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section headcss{
+
+    <link href="~/Areas/Admin/Public/MyCSS/PageCSS.css" rel="stylesheet" />
+}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div clas="col-md-6">
+                <strong>ĐẶT BÀN</strong>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <table class="table table-bordered table-hover table-striped">
+        <tr>
+            <th>
+                Tên TK
+            </th>
+            <th>
+                Ngày bắt đầu
+            </th>
+            <th>
+                Giờ bắt đầu
+            </th>
+            <th>
+                Họ và tên
+            </th>
+            <th>
+                E-mail
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Người lớn
+            </th>
+            <th>
+                Trẻ em
+            </th>
+            <th>
+                Ghi chú
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GioDB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SLNguoiLon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SLTreEm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GhiChu)
+                </td>
+                <td>
+                    <p class="btn btn-sm btn-success" style="background: #ffffff; border: 2px solid #000000;">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.DatBanID })
+                    </p>
+                    <p class="btn btn-sm btn-success" style="background: #ffffff; border: 2px solid #000000;">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.DatBanID })
+                    </p>
+                </td>
+            </tr>
+        }
+    </table>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+                                                 new PagedListRenderOptions
+                                                 {
+                                                     LiElementClasses = new string[] { "page-item" },
+                                                 })
+
+</div>

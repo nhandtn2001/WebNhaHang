@@ -1,0 +1,63 @@
+﻿@model List<LAgarden_CNPM.Models.CartItem>
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@section head{ 
+    <style>
+        .my-a-thanh-toan{
+            text-decoration:none;
+        }
+        .my-a-thanh-toan:hover{
+            text-decoration:none !important;
+        }
+    </style>
+}
+<div class="content">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã SP</td>
+                        <td>Tên SP</td>
+                        <td>Ảnh SP</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CTMA.IDMA</td>
+                            <td>@item.CTMA.TenMonAn</td>
+                            <td><img src="@item.CTMA.ImgMA" width="100" /></td>
+                            <td><input type="text" class="txtQuantity" data-id="@item.CTMA.IDMA" value="@item.Quantity" /></td>
+                            <td>@item.CTMA.Gia.ToString("N0")</td>
+                            <td>@((item.CTMA.Gia) * item.Quantity)</td>
+                            <td><a href="#" data-id="@item.CTMA.IDMA" class="btn-delete">Xoá</a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+            <button id="btnContinue" class="btn btn-outline-primary">Tiếp tục mua hàng</button>
+            <button id="btnUpdate" class="btn btn-outline-secondary" >Cập nhật giỏ hàng</button>
+            <button id="btnDeleteAll" class="btn btn-outline-danger">Xoá giỏ hàng</button>
+            <a class="btn btn-outline-primary" href="/thanh-toan/">Thanh toán</a>
+        }
+        else
+        {
+            <div class="mt-5">
+                <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+            </div>
+        }
+
+    </div>
+</div>
+<script src="~/Public/MyJS/CartController.js"></script>

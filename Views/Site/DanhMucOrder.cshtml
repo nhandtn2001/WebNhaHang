@@ -1,0 +1,133 @@
+﻿@model List<MyClass.Model.CTMONAN>
+
+@{
+    var danhmuc = (MyClass.Model.DanhMuc)ViewBag.DanhMuc;
+
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<head>
+    @section head{
+        <link href="~/Public/MyCSS/Style.css" rel="stylesheet" />
+        <script src="~/Public/MyJS/JavaScript.js"></script>
+    }
+</head>
+<body>
+    <div class="text-center" style="margin-bottom:0">
+        <div class="row" style="margin:unset">
+            <div class=" col-sm-4">
+                <div class="khungvien">
+                    <img class=" container container-fluid container-lg container-md image-logo" src="~/Public/Img/Logo.jpg" style="" />
+                </div>
+            </div>
+            <div class="col-sm-8" style="padding: unset;">
+                <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner ">
+                        <div class="carousel-item active" data-interval="10000">
+                            <img src="~/Public/Img/Hinh1.jpg" class="d-block w-100" alt="..." style="border-radius: 50px 50px 50px 50px">
+                        </div>
+                        <div class="carousel-item" data-interval="2000">
+                            <img src="~/Public/Img/Hinh2.jpg" class="d-block w-100" alt="..." style="border-radius: 50px 50px 50px 50px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/Public/Img/Hinh3.jpg" class="d-block w-100" alt="..." style="border-radius: 50px 50px 50px 50px">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval" data-slide="prev" style="opacity:0">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Trước</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-target="#carouselExampleInterval" data-slide="next" style="opacity:0">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Sau</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: unset; padding-top:40px">
+        <!-- Cột trái -->
+
+        <div class="col-sm-4">
+
+            <div class="can-giua" style="padding-top:20px">
+                <ul class="mb-0 nav nav-food can-giua bo-goc my-list-menu">
+                    <li>
+                        <img src="~/Public/Img/LogoMenu.png" width="200">
+                    </li>
+                    @{ Html.RenderAction("DanhMucSP", "Site");}
+                </ul>
+            </div>
+        </div>
+
+        <hr class="d-sm-none">
+
+        <!-- Kết thúc cột trái -->
+        <!-- Cột phải -->
+        <div class="col-sm-8" href="#menu">
+            @foreach (var item in Model)
+            {
+                var url = "/chi-tiet/" + @item.slug + "-" + @item.IDMA + "#menu";
+                <div class="my-flex" style="padding-top:20px">
+                    <div Class="card" style="width:100%">
+                        <img src="@item.ImgMA" width="318" height="254" href=@url Class="card-img-top" />
+                        <div Class="card-body">
+                            <h2 Class="card-title" href=@url>@item.TenMonAn</h2>
+                            <h5>Giá tiền: @item.Gia</h5>
+                            <a href=@url Class="btn btn-primary">Chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!--Phân trang-->
+            @if (ViewBag.TotalPage > 1)
+            {
+                var pageDisplay = (int)ViewBag.MaxPage;
+                int totalPage = (int)ViewBag.TotalPage;
+                int currentPage = ((int)ViewBag.Page);
+                var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+                var link = "/dat-mon";
+                <nav aria-label="Page navigation example ">
+                    <ul class="pagination my-padding-top">
+                        @if (currentPage > ViewBag.First)
+                        {
+                            <li class="page-item"><a href="@link?page=@ViewBag.First" title="Trang đầu" class="page-link">Đầu tiên</a></li>
+                            <li class="page-item"><a href="@link?page=@ViewBag.First" title="Trang trước" class="page-link">Trước</a></li>
+                        }
+                        @for (int i = startPageIndex; i <= endPageIndex; i++)
+                        {
+                            if (currentPage == i)
+                            {
+                                <li class="page-item"><a href="@link?page=@i" class="page-link" title="Trang @i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li class="page-item"><a href="@link?page=@i" class="page-link" title="Trang @i">@i</a></li>
+                            }
+                        }
+                        @if (currentPage < totalPage)
+                        {
+                            <li class="page-item"><a href="@link?page=@ViewBag.Next" class="page-link" title="Trang sau">Sau</a></li>
+                            <li class="page-item"><a href="@link?page=@ViewBag.Last" class="page-link" title="Trang cuối">Cuối cùng</a></li>
+                        }
+                    </ul>
+                </nav>
+            }
+            <!-- Kết thúc cột phải -->
+        </div>
+    </div>
+
+
+    <script>
+        function addClass() {
+            let ele = document.getElementById('datmon');
+            /* thêm class*/
+            ele.classList.add('is-active');
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.nav-item.link-3').find('[href="' + window.location.pathname + '"]').parent().addClass('my-active');
+        });
+    </script>
+</body>

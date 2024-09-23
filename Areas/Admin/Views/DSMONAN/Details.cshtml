@@ -1,0 +1,72 @@
+﻿@model MyClass.Model.DSMONAN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DSMONAN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Món Ăn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenMonAn)
+        </dd>
+
+        <dt>
+            Giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            Slug
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slug)
+        </dd>
+
+        <dt>
+            Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            Hình Ảnh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            ID Danh Mục
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhMucID)
+        </dd>
+
+
+    </dl>
+</div>
+<p class="btn btn-sm btn-success" style="background: #ffffff; border: 2px solid #000000;">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDMA })
+
+</p>
+
+<div>
+    <a href="@Url.Action("",("DSMONAN"))" class="btn btn-sm btn-success">Quay Lại</a>
+</div>

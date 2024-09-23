@@ -1,0 +1,92 @@
+﻿@model MyClass.Model.TAIKHOAN
+
+@{
+    ViewBag.Title = "Tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section headcss{
+    <link href="~/Areas/Admin/Public/MyCSS/KhungHinhCSS.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Public/MyCSS/CangiuaCss.css" rel="stylesheet" />
+}
+<h2>Tài khoản</h2>
+<div class="mypadding-admin">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.IDKH)
+        <div class="form-horizontal">
+            <h4>Chỉnh sửa</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">Họ và tên </div>@Html.TextBoxFor(model => model.FullName, new { @class = "form-control my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">Tên tài khoản: </div>@Html.TextBoxFor(model => model.UserName, new { @class = "form-control my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">Mật khẩu: </div>@Html.PasswordFor(model => model.Password, new { @class = "form-control my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">E-mail: </div>@Html.TextBoxFor(model => model.Email, new { @class = "form-control my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">Số điện thoại: </div>@Html.TextBoxFor(model => model.Phone, new { @class = "form-control my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">Địa chỉ: </div>@Html.TextBoxFor(model => model.Address, new { @class = "form-control my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">Roles: </div>@Html.TextBoxFor(model => model.Roles, new { @class = "form-control my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.Roles, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">Status: </div>@Html.TextBoxFor(model => model.Status, new { @class = "form-control my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row my-padding-khung">
+                    <input type="submit" value="Sửa" class="btn btn-sm btn-success my-button-width my-margin-left" />
+                    <a href="@Url.Action("",("TaiKhoan"))" class="btn btn-sm btn-success my-button-width my-margin-left">Quay Lại</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<MyClass.Model.DANGKY>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div clas="col-md-6">
+                <strong>TẤT CẢ SẢN PHẨM</strong>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action(("Create"),("DANGKY"))" class="btn btn-sm btn-success">Thêm Mới</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <table class="table table-bordered table-hover table-striped">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.TenDangNhap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatKhau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailDK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaChiDK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenDayDu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CauHoiBaoMat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgaySinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioiTinhDK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaQuyen)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenDangNhap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MatKhau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailDK)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChiDK)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenDayDu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CauHoiBaoMat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgaySinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GioiTinhDK)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaQuyen)
+                </td>
+                <td>
+                    <p class="btn btn-sm btn-success" style="background: #ffffff; border: 2px solid #000000;">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.TenDangNhap })
+                    </p>
+                    <p class="btn btn-sm btn-success" style="background: #ffffff; border: 2px solid #000000;">
+                        @Html.ActionLink("Details", "Details", new { id = item.TenDangNhap })
+                    </p>
+                    <p class="btn btn-sm btn-success" style="background: #ffffff; border: 2px solid #000000;">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.TenDangNhap })
+                    </p>
+                </td>
+            </tr>
+        }
+
+    </table>
+ </div>

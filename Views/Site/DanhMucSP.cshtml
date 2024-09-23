@@ -1,0 +1,8 @@
+﻿@model List<MyClass.Model.DanhMuc>
+
+@foreach (var item in Model)
+{
+    var url = "/danh-muc/" + item.Tags + "-" + item.DanhMucID;
+    <li class="nav-item link-3" id="menu1+@item.DanhMucID"><a class="nav-link my-a" href="@url">@item.DanhMucName</a></li>
+    
+}

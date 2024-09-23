@@ -1,0 +1,96 @@
+﻿@model PagedList.IPagedList<MyClass.Model.TAIKHOAN>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section headcss{
+
+    <link href="~/Areas/Admin/Public/MyCSS/PageCSS.css" rel="stylesheet" />
+}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div clas="col-md-6">
+                <strong>TÀI KHOẢN</strong>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action("Create", "TAIKHOAN")" class="btn btn-sm btn-success">Thêm Mới</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <table class="table table-bordered table-hover table-striped">
+        <tr style="text-align:center">
+            <th>
+                Họ tên:
+            </th>
+            <th>
+                Tên tài khoản
+            </th>
+            <th>
+               Mật khẩu
+            </th>
+            <th>
+                E-mail
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Roles
+            </th>
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Roles)
+                </td>
+                <td>
+                    <p class="btn btn-sm btn-success" style="background: #ffffff; border: 2px solid #000000;">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.IDKH })
+                    </p>
+                    <p class="btn btn-sm btn-success" style="background: #ffffff; border: 2px solid #000000;">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.IDKH })
+                    </p>
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+                                        new PagedListRenderOptions
+                                        {
+                                            LiElementClasses = new string[] { "page-item" },
+                                        })
+
+</div>

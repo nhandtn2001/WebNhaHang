@@ -1,0 +1,126 @@
+﻿@{ 
+    var session = (LAgarden_CNPM.Common.UserLogin)Session[LAgarden_CNPM.Common.CommonConstants.USER_SESSION];
+}
+<!DOCTYPE html>
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="/Public/plugins/ckfinder/ckfinder.js"></script>
+    <link href="~/Public/MyCSS/MenuBar CSS/MenubarCSS.css" rel="stylesheet" type="text/css" />
+
+    @RenderSection("head", required: false)
+    <style>
+        body {
+            background-image: url('../../Public/Img/AN1.jpg');
+            background-size: cover;
+            height: 100%;
+        }
+
+        footer {
+            padding: 1em;
+            color: black;
+            clear: left;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100 my-bar-margin-nav">
+            <div class="container">
+                <!-- Brand -->
+                <a class="navbar-brand" href="~/Site/Home">
+                    <img src="~/Public/Img/logo2.png" width="220" height="50" alt="Logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <nav class="nav my-bar-nav">
+                    <a href="/thong-tin" class="nav-item my-bar-nav-item my-bar-a" active-color="DarkSlateBlue" id="thongtin">Thông tin</a>
+                    <a href="/ho-tro" class="nav-item my-bar-nav-item my-bar-a" active-color="DarkKhaki" id="hotro">Hỗ trợ</a>
+                    <a href="/dat-ban" class="nav-item my-bar-nav-item my-bar-a" active-color="DeepPink" id="datban">Đặt bàn</a>
+                    <a href="/dat-mon" class="nav-item my-bar-nav-item my-bar-a" active-color="LimeGreen" id="datmon">Đặt món</a>
+                    
+                    @if (session == null)
+                    {
+                        <a href="/dang-nhap" class="nav-item my-bar-nav-item my-bar-a" active-color="DarkSlateBlue" id="dangnhap">Đăng nhập</a>
+                        <a href="/dang-ky" class="nav-item my-bar-nav-item my-bar-a" active-color="DarkKhaki" id="dangky">Đăng ký</a>
+                        
+                    }
+                    else
+                    {
+                            <div class="dropdown nav my-bar-nav my-menu-nav-ver2">
+                                <a class="nav-item my-bar-nav-item my-bar-a my-menu-nav-ver2-item" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left:20px">
+                                    Xin chào: @session.UserName
+                                </a>
+                                <div class="dropdown-menu my-drop-down" aria-labelledby="dropdownMenuButton">
+                                    <div class="dropdown-item"><a href="/gio-hang/">Giỏ hàng</a></div>
+                                    <div class="dropdown-item"><a href="/thong-tin-tai-khoan/">Thông tin tài khoản</a></div>
+                                    <div class="dropdown-item"><a href="/doi-mat-khau/">Đổi mật khẩu</a></div>
+                                    <div class="dropdown-item"><a href="/dang-xuat/">Đăng xuất</a></div>
+                                </div>
+                            </div>
+                            }
+                            <span class="nav-indicator my-bar-nav-indicator"></span>
+                        </nav>
+                        <!-- Links
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/thong-tin">Thông tin</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/ho-tro">Hỗ trợ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dat-ban">Đặt bàn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dat-mon">Đặt món</a>
+                </li>
+                @if (session == null)
+                {
+                <li class="nav-item">
+                    <a class="nav-link" href="/dang-nhap">Đăng nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dang-ky">Đăng ký</a>
+                </li>
+                }
+                else
+                {
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left:20px">
+                            Xin chào: @session.UserName
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-item">@Html.ActionLink("Thoát", "Logout", "User")</div>
+                        </div>
+                    </div>
+                }
+            </ul>
+        </div>
+            -->
+</div>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+    <footer style="background-color:black;opacity:0.7;">
+        <p style="color:white;text-align:right;text-decoration:none">Khu Biệt Thự Lan Anh, 2 Đường Số 45, P. Bình An,  Quận 2, TP. HCM<br />Giờ mở cửa: 06:30 - 21:30 <br />©Copyright by </p>
+    </footer>
+    @RenderSection("thongtin", required: false)
+    @RenderSection("hotro", required: false)
+    @RenderSection("datban", required: false)
+    @RenderSection("datmon", required: false)
+    <script src="~/Public/MyJS/MenuBar JS/MenubarJS.js"></script>
+</body>
+</html>

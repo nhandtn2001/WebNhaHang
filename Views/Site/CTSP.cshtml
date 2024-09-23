@@ -1,0 +1,25 @@
+﻿@model MyClass.Model.CTMONAN
+@{
+    Layout = "~/Views/Shared/_OrderLayout.cshtml";
+    var danhmuc = (MyClass.Model.DSMONAN)ViewBag.DanhMuc;
+}
+<head>
+    <link href="~/Public/MyCSS/CTSP.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="ImageCenter"><img class="my-image-size"  src="@Model.ImgMA" /></p>
+            <div class="bg-primary"></div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="text-primary">Món ăn</h1>
+            <h1>@Model.TenMonAn</h1>
+            <h3>Giá: @Model.Gia</h3>
+            
+            <p>@Model.ChiTietMA</p>
+            <a class="btn btn-outline-primary" href="/them-gio-hang?idma=@Model.IDMA&quantity=1">Đặt món</a>
+        </div>
+    </div>
+</body>
+

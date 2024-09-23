@@ -1,0 +1,89 @@
+﻿@model MyClass.Model.CTMONAN
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Bạn có muốn xóa chi tiết món ăn này?</h3>
+<div>
+    <h4>CHI TIẾT MÓN ĂN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+          ID Danh Mục
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhMucID)
+        </dd>
+
+        <dt>
+           Tên Món Ăn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenMonAn)
+        </dd>
+
+        <dt>
+           Số Lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            Chi Tiết Món Ăn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChiTietMA)
+        </dd>
+
+        <dt>
+            Giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            Khuyến Mãi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaSale)
+        </dd>
+
+        <dt>
+            Hình Ảnh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgMA)
+        </dd>
+
+        
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" sclas="btn btn-sm btn-success" />
+
+        </div>
+
+    }
+</div>
+
+<div style="margin-top:15px;">
+    <a href="@Url.Action("",("CTMONAN"))" class="btn btn-sm btn-success">Quay Lại</a>
+</div>

@@ -1,0 +1,73 @@
+﻿@model MyClass.Model.DanhMuc
+
+@{
+    ViewBag.Title = "Danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@section headcss{
+    <link href="~/Areas/Admin/Public/MyCSS/KhungHinhCSS.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Public/MyCSS/CangiuaCss.css" rel="stylesheet" />
+}
+
+<h2>Danh mục</h2>
+<div class="mypadding-admin">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Thêm mới</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">ID Danh Mục: </div> @Html.TextBoxFor(model => model.DanhMucID, new { @class = "form-control  my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.DanhMucID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">Tên danh mục: </div>@Html.TextBoxFor(model => model.DanhMucName, new { @class = "form-control  my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.DanhMucName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">Thứ tự: </div>@Html.TextBoxFor(model => model.ThuTu, new { @class = "form-control  my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.ThuTu, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row my-padding-khung">
+                    <div class="my-a-infor">Tags: </div>@Html.TextBoxFor(model => model.Tags, new { @class = "form-control  my-background boderText" })
+                    @Html.ValidationMessageFor(model => model.Tags, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row my-padding-khung">
+                    <input type="submit" value="Thêm" class="btn btn-sm btn-success my-button-width my-margin-left" />
+                    <a href="@Url.Action("",("DanhMuc"))" class="btn btn-sm btn-success my-button-width my-margin-left">Quay Lại</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section footjs{
+    <script>
+            $(document).ready(function () {
+                $('#btnSelectImage').on('click', function () {
+                    var finder = new CKFinder();
+                    finder.selectActionFunction = function (url) {
+                        $('#txtImage').val(url);
+                    };
+                    finder.popup();
+                })
+            });
+    </script>
+}

@@ -1,0 +1,33 @@
+﻿.my-swapper {
+    max-width: 600px;
+    min-height: 30px;
+    border: 1px solid gray;
+    padding: 15px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.boderText {
+    width: 500px;
+}
+.my-a-infor {
+    font-family:Helvetica;
+    padding-top: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+    width:150px;
+
+}
+.my-a-btn {
+    text-decoration: none !important;
+    color: white;
+}
+    .my-a-btn:hover {
+        text-decoration: none !important;
+        color: white;
+    }
+.my-margin-left{
+    margin-left:30px;
+}
+

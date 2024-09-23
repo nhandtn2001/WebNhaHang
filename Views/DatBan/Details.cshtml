@@ -1,0 +1,83 @@
+﻿@model MyClass.Model.DatBan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DatBan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioDB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioDB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLNguoiLon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLNguoiLon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLTreEm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLTreEm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DatBanID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

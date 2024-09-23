@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<style>
+    body {
+        font-family: arial;
+    }
+
+    div.test {
+        margin-bottom:30px;
+        white-space:nowrap;
+        width: 550px;
+        overflow: hidden;
+        border-bottom: 1px solid #000000;
+    }
+
+        div.test:hover {
+            overflow: visible;
+        }
+</style>
+<head>
+    <title>
+        Tin tức - sự kiện
+    </title>
+</head>
+<body>
+    <section>
+        <div class="title_page" style="color:#2a9f08 ;
+        font-size: 30pt;
+        text-shadow: 5px 2px 4px grey;
+        font-weight: bold;
+        text-align: center;">Lan Anh Graden <br /> Tin tức - sự kiện</div>
+        <div style="margin-left:300px; margin-top:50px; font-weight:bold; font-size:26px;"> Các sự kiện gần đây</div>
+        <div class="infor_page">
+            <div style="margin-left:300px; margin-top:50px;">
+                <div class="test" style="text-overflow:ellipsis;">
+                    <a href="https://www.facebook.com/watch/?v=506616266983884">Sự kiện trưng bày và giới thiệu Du thuyền Saigon Yacht Show với sự tham dự của tất cả các công ty du thuyền Việt Nam.</a>
+                </div>
+                <div class="test" style="text-overflow:ellipsis;">
+                    <a href="https://www.facebook.com/LAgardenrestaurant/posts/1999225996898762">VIP YEAR END PARTY - SAIGON YACHT SHOW 2021</a>
+                </div>
+                <div class="test" style="text-overflow:ellipsis;">
+                    <a href="https://www.facebook.com/LAgardenrestaurant/posts/1974496586038370">[Ưu đãi tiệc cuối năm] TIỆC TẤT NIÊN VỚI VIEW SÔNG SÀI GÒN</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_sevice">
+        <div class="row">
+            <div class="col-md-4" style="left:50px;">
+                <span class="anhicon"><img src="~/Public/Img/icon1.png" /></span>
+                <div class="contain-right">
+                    <p class="title">Miễn phí giao hàng</p>
+                    <p>Miễn phí vận chuyển nội thành</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span class="anhicon"><img src="~/Public/Img/icon3.png" /></span>
+                <div class="contain-right">
+                    <p class="title">Tiết kiệm thời gian</p>
+                    <p>Mua sắm dễ hơn khi online</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span class="anhicon"><img src="~/Public/Img/icon4.png" /></span>
+                <div class="contain-right">
+                    <p class="title">Tư vấn trực tiếp</p>
+                    <p>Đội ngũ tư vấn nhiệt tình</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+

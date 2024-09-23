@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "MenuTrai";
+    Layout = "~/Views/Site/Order.cshtml";
+}
+
+@section MenuTrai{
+    <div class="can-giua">
+        <ul class="mb-0 nav nav-food can-giua bo-goc my-list-menu">
+            <li>
+                <img src="~/Public/Img/LogoMenu.png" width="200">
+            </li>
+            @{ Html.RenderAction("DanhMucSP", "Site");}
+        </ul>
+    </div>
+}

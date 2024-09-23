@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAgardenCNPM", "LAgardenCNPM.csproj", "{D2575FD6-DDD0-4AD2-A8B5-6DED25CEBEAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClass", "..\MyClass\MyClass.csproj", "{5660071F-0A6D-4B5C-87E8-519FD239E068}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2575FD6-DDD0-4AD2-A8B5-6DED25CEBEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2575FD6-DDD0-4AD2-A8B5-6DED25CEBEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2575FD6-DDD0-4AD2-A8B5-6DED25CEBEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2575FD6-DDD0-4AD2-A8B5-6DED25CEBEAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5660071F-0A6D-4B5C-87E8-519FD239E068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5660071F-0A6D-4B5C-87E8-519FD239E068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5660071F-0A6D-4B5C-87E8-519FD239E068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5660071F-0A6D-4B5C-87E8-519FD239E068}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

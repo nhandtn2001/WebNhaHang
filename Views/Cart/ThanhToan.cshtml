@@ -1,0 +1,108 @@
+﻿@model LAgarden_CNPM.Models.ThanhToanModel
+
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<head>
+    @section head{
+        <link href="~/Public/MyCSS/CangiuaCss.css" rel="stylesheet" />
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid black;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+    }
+</head>
+<div class="row" style="margin:auto">
+    <div class="my-swapper col-sm-8" style="margin-left:100px">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            <div class="form-horizontal">
+                @if (ViewBag.Success != null)
+                {
+                    <div class="alert alert-success">@ViewBag.Success</div>
+                }
+                <h4>Thanh toán</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="row">
+                        <div class="my-a-infor">Tên người nhận: </div>@Html.TextBoxFor(model => model.NameRecieve, new { @class = "form-control boderText", @placeholder = "Để trống nếu đặt mặc định" })
+                        @Html.ValidationMessageFor(model => model.NameRecieve, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="row">
+                        <div class="my-a-infor">Số điện thoại: </div>@Html.TextBoxFor(model => model.PhoneRecive, new { @class = "form-control boderText", @placeholder = "Để trống nếu đặt mặc định" })
+                        @Html.ValidationMessageFor(model => model.PhoneRecive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="row">
+                        <div class="my-a-infor">Địa chỉ: </div>@Html.TextBoxFor(model => model.AddressRecive, new { @class = "form-control boderText", @placeholder = "Để trống nếu đặt mặc định" })
+                        @Html.ValidationMessageFor(model => model.AddressRecive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="row">
+                        <div class="my-a-infor">Email: </div>@Html.TextBoxFor(model => model.EmailRecieve, new { @class = "form-control boderText", @placeholder = "Để trống nếu đặt mặc định" })
+                        @Html.ValidationMessageFor(model => model.EmailRecieve, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <input style="margin-left:20px" type="submit" value="Thanh toán" class="btn btn-outline-success" />
+                        <a class="btn btn-outline-danger" style="margin-left:20px" href="/gio-hang/">Quay lại</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+    <div class="my-swapper col-sm-4">
+        <h3>HOÁ ĐƠN</h3>
+        <table>
+            <tr>
+                <th>Tên món ăn</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+            </tr>
+            
+            @foreach (var item in ViewBag.MatHang)
+            {
+
+                <tr>
+                    <td>@item.CTMA.TenMonAn</td>
+                    <td>@item.Quantity</td>
+                    <td>@(@item.CTMA.Gia*@item.Quantity)</td>
+                </tr>
+            }
+
+        </table>
+        <div style="margin-top: 15px"><b class="text-danger">Tổng tiền thanh toán: @ViewBag.TongTien</b></div>
+    </div>
+    </div>

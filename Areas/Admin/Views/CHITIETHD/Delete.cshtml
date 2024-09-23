@@ -1,0 +1,70 @@
+﻿@model MyClass.Model.CHITIETHD
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Bạn có muốn xóa chi tiết hóa đơn này?</h3>
+<div>
+    <h4>CHI TIẾT HÓA ĐƠN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>    
+               Chi tiết hoá đơn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChiTietHD1)
+        </dd>
+
+        <dt>
+            Tổng hoá đơn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongHD)
+        </dd>
+
+        <dt>
+            ID Nhân viên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDNV)
+        </dd>
+
+        <dt>
+            Tên nhân viên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNV)
+        </dd>
+
+        <dt>
+            Tên khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenKH)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" sclas="btn btn-sm btn-success" />
+
+        </div>
+
+        <div style="margin-top:5px;">
+            <a href="@Url.Action("",("CHITIETHD"))" class="btn btn-sm btn-success">Quay Lại</a>
+        </div>
+    }
+</div>

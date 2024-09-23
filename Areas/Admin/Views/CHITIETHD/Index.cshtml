@@ -1,0 +1,79 @@
+﻿@model IEnumerable<MyClass.Model.CHITIETHD>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div clas="col-md-6">
+                <strong>TẤT CẢ SẢN PHẨM</strong>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action(("Create"),("CHITIETHD"))" class="btn btn-sm btn-success">Thêm Mới</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <table class="table table-bordered table-hover table-striped">
+        <tr>
+            <th>
+                Chi Tiết Hóa Đơn
+            </th>
+            <th>
+                Tổng Hóa Đơn
+            </th>
+            <th>
+                ID Nhân Viên
+            </th>
+            <th>
+                Tên Nhân Viên
+            </th>
+            <th>
+                Tên Khách Hàng
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChiTietHD1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TongHD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDNV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenKH)
+                </td>
+                <td>
+                    <p class="btn btn-sm btn-success" style="background: #ffffff; border: 2px solid #000000;">
+                        @Html.ActionLink("Edit", "Edit", new
+                        {
+                            id = item.MaHD
+                            })
+                    </p>
+                    <p class="btn btn-sm btn-success" style="background: #ffffff; border: 2px solid #000000;">
+                        @Html.ActionLink("Details", "Details", new
+                        {
+                            id = item.MaHD
+        })
+                    </p>
+                    <p class="btn btn-sm btn-success" style="background: #ffffff; border: 2px solid #000000;">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MaHD })
+                    </p>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
